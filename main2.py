@@ -34,10 +34,12 @@ def process_and_visualize(file1, file2, threshold):
     total_points = len(merged_data)
     exceeding_points = merged_data['Exceeds_Threshold'].sum()
     exceeding_percentage = (exceeding_points / total_points) * 100
+    ASR = 1 - (exceeding_points / total_points)
 
     print(f"全体の点数: {total_points}")
     print(f"閾値を超える点数: {exceeding_points}")
     print(f"割合: {exceeding_percentage:.2f}%")
+    print(f"ASR: {ASR:.2f}")
 
 
 
@@ -48,7 +50,7 @@ def process_and_visualize(file1, file2, threshold):
 
     pcd_below = create_point_cloud(below_threshold, [1, 0, 0])  # 赤
     pcd_above_1 = create_point_cloud(above_threshold_1, [0, 0, 1])  # 青
-    pcd_above_2 = create_point_cloud(above_threshold_2, [1, 1, 0])  # 黄
+    pcd_above_2 = create_point_cloud(above_threshold_2, [0, 1, 0])  #緑
 
     # 点群可視化
     o3d.visualization.draw_geometries([pcd_below, pcd_above_1, pcd_above_2])
