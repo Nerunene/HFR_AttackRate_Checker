@@ -50,7 +50,7 @@ def process_and_visualize(file1, file2, threshold):
     # 点群オブジェクトの作成（色分け）
     pcd_below = create_point_cloud(below_threshold, [1, 0, 0])  # 赤
     pcd_above_1 = create_point_cloud(above_threshold_1, [0, 0, 1])  # 青
-    pcd_above_2 = create_point_cloud(above_threshold_2, [1, 1, 0])  # 黄
+    pcd_above_2 = create_point_cloud(above_threshold_2, [0, 1, 0])  # 黄
 
     # 点群の可視化
     o3d.visualization.draw_geometries([pcd_below, pcd_above_1, pcd_above_2])
